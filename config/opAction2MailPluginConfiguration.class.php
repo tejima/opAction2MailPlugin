@@ -39,11 +39,11 @@ EOF;
     $from = opConfig::get('ZUNIV_US_NOTIFYFROM',opConfig::get('admin_mail_address'));
 
     list($subject,$body) = explode("\n",$message,2);
-    if ($memberPcAddress)
+    if (0 != $member->getConfig('ZUNIV_US_NOTIFYPC',1) && $memberPcAddress)
     {
       opMailSend::execute($subject, $memberPcAddress, $from, $body);
     }
-    if ($memberMobileAddress)
+    if (0 != $member->getConfig('ZUNIV_US_NOTIFYMOBILE',1) && $memberMobileAddress)
     {
       opMailSend::execute($subject, $memberMobileAddress, $from, $body);
     }

@@ -1,0 +1,27 @@
+notification:
+  _attributes:
+    caption:        "電子メール通知設定"
+    enable_pc:      true
+    enable_mobile:  true
+  ZUNIV_US_NOTIFYPC:
+    Name:           "ZUNIV_US_NOTIFYPC"
+    Caption:        "PCメールに通知する？"
+    FormType:       "radio"
+    Choices:        {"1":"する","2":"しない"}
+    Default:        "1"
+    ValueType:      "int"
+    IsRegist:       false
+    IsConfig:       true
+    IsRequired:     false
+    IsConfirm:      false
+  ZUNIV_US_NOTIFYMOBILE:
+    Name:           "ZUNIV_US_NOTIFYMOBILE"
+    Caption:        "携帯メールに通知する？"
+    FormType:       "radio"
+    Choices:        {"1":"する","2":"しない"}
+    Default:        "1"
+    ValueType:      "int"
+    IsRegist:       false
+    IsConfig:       true
+    IsRequired:     false
+    IsConfirm:      false
