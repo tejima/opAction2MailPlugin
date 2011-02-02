@@ -11,6 +11,7 @@ https://github.com/downloads/tejima/opAction2MailPlugin/opAction2MailPlugin.zip
 
 
 ◆TODO
+・日記コメントのアクションにもメール通知機能をつける
 ・バージョン3.4で動作しないバグを修正。　http://sns.openpne.jp/diary/25976?comment_count=5
 ・OpenPNE3のメール通知テンプレートに従わせる
 ・メッセージ以外のアクションでも通知が行えるようにする
