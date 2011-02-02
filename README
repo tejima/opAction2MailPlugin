@@ -1,4 +1,3 @@
-
 ◆opAction2MailPluginの概要
 メッセージの受信を電子メールに通知するプラグイン
 
@@ -12,8 +11,10 @@ https://github.com/downloads/tejima/opAction2MailPlugin/opAction2MailPlugin.zip
 
 
 ◆TODO
+・バージョン3.4で動作しないバグを修正。　http://sns.openpne.jp/diary/25976?comment_count=5
 ・OpenPNE3のメール通知テンプレートに従わせる
 ・メッセージ以外のアクションでも通知が行えるようにする
+・コミュニティトピックはすでにメール通知がされるようになるが、本プラグインにメール通知設定を寄せた場合にどうなるか？つくってみる。
 ・メッセージプラグインが入っていない場合の、正常動作を確認する
 
 ◆更新履歴
