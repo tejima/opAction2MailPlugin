@@ -10,6 +10,11 @@ class opAction2MailPluginConfiguration extends sfPluginConfiguration
     );
   }
   public function sendToFriend($event){
+
+    if(version_compare(OPENPNE_VERSION, '3.5.0', '<=')){
+      require_once(dirname(__FILE__).'/dummyload.php');
+    }
+
     $action = $event['actionInstance'];
     if(sfRequest::POST != $action->getRequest()->getMethod()){
       return;
