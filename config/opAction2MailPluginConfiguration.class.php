@@ -32,7 +32,7 @@ class opAction2MailPluginConfiguration extends sfPluginConfiguration
 {$data['body']}
 
 メッセージに返信するには、こちらをクリックしてください。
-{$url}/message
+{$url}message
 EOF;
     self::notifyMail($member_to,$message);
   }
