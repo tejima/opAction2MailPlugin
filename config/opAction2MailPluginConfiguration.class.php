@@ -20,6 +20,7 @@ class opAction2MailPluginConfiguration extends sfPluginConfiguration
       require_once(dirname(__FILE__).'/dummyload.php');
     }
     $action = $event['actionInstance'];
+    $ce_id = $action->form->getObject()->id;
     $object = $action->getRoute()->getObject();
     if ($object instanceof Community){
     }else{
@@ -46,7 +47,7 @@ EOF;
     }
     
     $msg = "community_id:{$object->id}\n";
-    error_log("$msg",3,'/tmp/log');
+//    error_log("$msg",3,'/tmp/log');
   }
   public function sendToFriend($event){
     if(version_compare(OPENPNE_VERSION, '3.5.0', '<=')){
@@ -54,7 +55,6 @@ EOF;
     }
 
     $action = $event['actionInstance'];
-    
 
     if(sfRequest::POST != $action->getRequest()->getMethod()){
       return;
@@ -74,9 +74,10 @@ EOF;
 メッセージに返信するには、こちらをクリックしてください。
 {$url}message
 EOF;
-    self::notifyMail($member_to,$message);
+    if(!$action->getRequestParameter('is_draft')){
+      self::notifyMail($member_to,$message);
+    }
   }
-
   public static function notifyMail($member,$message)
   {
     $memberPcAddress = $member->getConfig('pc_address');
@@ -84,11 +85,11 @@ EOF;
     $from = opConfig::get('ZUNIV_US_NOTIFYFROM',opConfig::get('admin_mail_address'));
 
     list($subject,$body) = explode("\n",$message,2);
-    if (0 != $member->getConfig('ZUNIV_US_NOTIFYPC',1) && $memberPcAddress)
+    if (2 != $member->getConfig('ZUNIV_US_NOTIFYPC',1) && $memberPcAddress)
     {
       opMailSend::execute($subject, $memberPcAddress, $from, $body);
     }
-    if (0 != $member->getConfig('ZUNIV_US_NOTIFYMOBILE',1) && $memberMobileAddress)
+    if (2 != $member->getConfig('ZUNIV_US_NOTIFYMOBILE',1) && $memberMobileAddress)
     {
       opMailSend::execute($subject, $memberMobileAddress, $from, $body);
     }
