@@ -47,7 +47,6 @@ EOF;
     }
     
     $msg = "community_id:{$object->id}\n";
-//    error_log("$msg",3,'/tmp/log');
   }
   public function sendToFriend($event){
     if(version_compare(OPENPNE_VERSION, '3.5.0', '<=')){
@@ -93,15 +92,5 @@ EOF;
     {
       opMailSend::execute($subject, $memberMobileAddress, $from, $body);
     }
-/*
-    $msg = <<<EOF
-FROM:{$from}
-TO_PC:{$memberPcAddress}
-TO_MOBILE:{$memberMobileAddress}
-MSG:
-{$message}
-EOF;
-    error_log("$msg",3,'/tmp/log');
-*/
   }
 }
