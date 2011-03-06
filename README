@@ -4,10 +4,10 @@
 ◆インストール・設定
 https://github.com/downloads/tejima/opAction2MailPlugin/opAction2MailPlugin.zip
 からパッケージをダウンロードする。
-./plugins/に展開する。
+展開したフォルダを丸ごと ./plugins/に展開する。
 
 プラグイン管理画面から、通知時のFROMとするアドレスを設定する。
-設定しない場合FROMは管理者のメールアドレスになる。
+設定しない場合FROMはOpenPNE管理者のメールアドレスにセットされる。
 
 
 ◆TODO
@@ -17,6 +17,9 @@ https://github.com/downloads/tejima/opAction2MailPlugin/opAction2MailPlugin.zip
 ・メッセージ以外のアクションでも通知が行えるようにする
 ・コミュニティトピックはすでにメール通知がされるようになるが、本プラグインにメール通知設定を寄せた場合にどうなるか？つくってみる。
 ・メッセージプラグインが入っていない場合の、正常動作を確認する
+・symfonyの作法でログをとる
 
 ◆更新履歴
+2011/03/06 デバッグコメント削除。symfony方式のログ取得TODOを追加。
+2011/02/XX 下書き保存で通知が送られてしまうバグを修正。その他マイナーバグ修正。
 2011/01/30 テスト版リリース
