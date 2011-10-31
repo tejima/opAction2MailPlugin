@@ -23,3 +23,6 @@ https://github.com/downloads/tejima/opAction2MailPlugin/opAction2MailPlugin.zip
 2011/03/06 デバッグコメント削除。symfony方式のログ取得TODOを追加。
 2011/02/XX 下書き保存で通知が送られてしまうバグを修正。その他マイナーバグ修正。
 2011/01/30 テスト版リリース
+
+◆不具合＆機能拡張
+https://github.com/tejima/opAction2MailPlugin/issues
