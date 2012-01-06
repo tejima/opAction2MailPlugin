@@ -8,11 +8,6 @@ class opAction2MailPluginConfiguration extends sfPluginConfiguration
       'op_action.post_execute_message_sendToFriend',
       array($this,'sendToFriend')
     );
-    $this->dispatcher->connect(
-      'op_action.post_execute_communityEvent_create',
-      array($this,'event2mail')
-    );
-
   }
 
   public function event2mail($event){
