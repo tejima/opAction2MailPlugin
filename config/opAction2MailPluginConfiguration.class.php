@@ -25,7 +25,9 @@ class opAction2MailPluginConfiguration extends sfPluginConfiguration
     $cm_list = Doctrine_query::create()->from("CommunityMember cm")->where("community_id = ?",$community_id)->execute();
 
     $data = $action->getRequestParameter('community_event');
-    $url = sfConfig::get('op_base_url');    
+    $url = sfConfig::get('op_base_url');
+    $url = preg_match ( "/\/$/" , $url) ? $url : $url."/";
+
     $message = <<<EOF
 {$data['open_date']['month']}/{$data['open_date']['day']} {$data['name']}イベントのお知らせ
 
@@ -40,7 +42,7 @@ EOF;
       $member = Doctrine::getTable("Member")->find($cm->member_id);
       $this->notifyMail($member,$message);
     }
-    
+
     $msg = "community_id:{$object->id}\n";
   }
   public function sendToFriend($event){
@@ -58,7 +60,9 @@ EOF;
     $member_from = Doctrine::getTable('Member')->find($id);
     $member_to = Doctrine::getTable('Member')->find($data['send_member_id']);
 
-    $url = sfConfig::get('op_base_url');    
+    $url = sfConfig::get('op_base_url');
+    $url = preg_match ( "/\/$/" , $url) ? $url : $url."/";
+
     $message = <<<EOF
 {$member_from['name']}さんからメッセージが届いています。
 件名:{$data['subject']}
